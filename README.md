@@ -6,6 +6,12 @@
 **Usage**
 
 **Start Application**
+
+**Gradle**
+* Run command "gradlew.bat bootRun" if Windows OS
+* Run command "./gradlew bootRun" if Linux or Mac OS
+
+**IDE**
 1. Open as Gradle Java project in IntelliJ IDE.
 2. Create Run configuration for a Java Application.
 3. Use spo.workforcemanager.WorkforceManagerApplication as the Main Class
@@ -13,6 +19,7 @@
 5. Select JRE 1.8 or higher
 6. Run the created Run configuration.
 8. SpringBoot REST application will be started in an embedded tomcat server with port 8080
+
 ---
 **REST Endpoints**
 
