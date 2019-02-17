@@ -33,6 +33,7 @@ public class Contract {
 
     /**
      * Contructor to initialize the member variables
+     *
      * @param rooms List of no of rooms in each structure
      * @param senior No of available senior workers
      * @param junior No of available junior workers
@@ -45,6 +46,7 @@ public class Contract {
 
     /**
      * Getter for List of no of rooms
+     *
      * @return List of no of rooms in each structure
      */
     public List<Integer> getRooms() {
@@ -53,6 +55,7 @@ public class Contract {
 
     /**
      * Setter for List of no of rooms
+     *
      * @param rooms List of no of rooms in each structure
      */
     public void setRooms(List<Integer> rooms) {
@@ -61,6 +64,7 @@ public class Contract {
 
     /**
      * Getter for no of available seniors
+     *
      * @return No of available senior workers
      */
     public int getSenior() {
@@ -69,6 +73,7 @@ public class Contract {
 
     /**
      * Setter for no of available seniors
+     *
      * @param cleaners No of available senior workers
      */
     public void setSenior(int cleaners) {
@@ -77,6 +82,7 @@ public class Contract {
 
     /**
      * Getter for no of available juniors
+     *
      * @return No of available junior workers
      */
     public int getJunior() {
@@ -85,6 +91,7 @@ public class Contract {
 
     /**
      * Setter for no of available juniors
+     *
      * @param junior No of available junior workers
      */
     public void setJunior(int junior) {

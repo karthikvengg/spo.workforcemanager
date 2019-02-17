@@ -25,7 +25,8 @@ public class Workforce {
     }
 
     /**
-     * Parameteried constructor
+     * Parameterized constructor
+     *
      * @param senior No of seniors for the given structure
      * @param junior No of juniors for the given structure
      */
@@ -36,6 +37,7 @@ public class Workforce {
 
     /**
      * Getter for seniors
+     *
      * @return No of seniors for the given structure
      */
     public int getSenior() {
@@ -44,6 +46,7 @@ public class Workforce {
 
     /**
      * Setter for seniors
+     *
      * @param senior No of seniors for the given structure
      */
     public void setSenior(int senior) {
@@ -52,6 +55,7 @@ public class Workforce {
 
     /**
      * Getter for juniors
+     *
      * @return No of juniors for the given structure
      */
     public int getJunior() {
@@ -60,6 +64,7 @@ public class Workforce {
 
     /**
      * Setter for juniors
+     *
      * @param junior No of juniors for the given structure
      */
     public void setJunior(int junior) {

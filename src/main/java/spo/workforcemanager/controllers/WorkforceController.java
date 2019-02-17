@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * This Class implements the REST resources for input and output of Workforce manager
+ *
  * @author Karthikeyan Varadarajan
  */
 
@@ -23,6 +24,7 @@ public class WorkforceController {
 
     /**
      * This method creates the optimal workforce needed for each structure of their cleaning partner
+     *
      * @param contract Input json object that contains the below input values:
      *                 - array of rooms (int) for every structure
      *                 - cleaning capacity Junior Cleaner (int)
@@ -42,6 +44,7 @@ public class WorkforceController {
     /**
      * This is an internal helper method that provides the logic to find optimal workforce for a given structure
      * from the available workers
+     *
      * @param contract Input json object that contains the below input values:
      *                 - array of rooms (int) for every structure
      *                 - cleaning capacity Junior Cleaner (int)
