@@ -1,4 +1,4 @@
-package spo.workforcemanager.controllers;
+package spo.workforcemanager.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import spo.workforcemanager.model.Contract;
 import spo.workforcemanager.model.Workforce;
-import spo.workforcemanager.services.WorkforceService;
+import spo.workforcemanager.service.WorkforceService;
 
 import java.util.List;
 

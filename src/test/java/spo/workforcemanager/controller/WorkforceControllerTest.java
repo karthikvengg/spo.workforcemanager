@@ -1,4 +1,4 @@
-package spo.workforcemanager.controllers;
+package spo.workforcemanager.controller;
 
 import com.google.gson.Gson;
 import org.hamcrest.Matchers;

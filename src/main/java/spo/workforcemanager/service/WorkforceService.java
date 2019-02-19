@@ -1,4 +1,4 @@
-package spo.workforcemanager.services;
+package spo.workforcemanager.service;
 
 import org.springframework.stereotype.Service;
 import spo.workforcemanager.model.Contract;
