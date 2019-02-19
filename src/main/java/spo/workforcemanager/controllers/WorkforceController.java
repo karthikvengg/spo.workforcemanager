@@ -1,11 +1,15 @@
 package spo.workforcemanager.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import spo.workforcemanager.model.Contract;
 import spo.workforcemanager.model.Workforce;
+import spo.workforcemanager.services.WorkforceService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,9 +22,11 @@ import java.util.List;
 @RestController
 public class WorkforceController {
 
-    private static final int SENIOR_MAX_CAPACITY = 10;
-    private static final int JUNIOR_MAX_CAPACITY = 5;
-    private List<Workforce> workforces;
+    /**
+     * Service class instance
+     */
+    @Autowired
+    private WorkforceService workforceService;
 
     /**
      * This method creates the optimal workforce needed for each structure of their cleaning partner
@@ -36,51 +42,6 @@ public class WorkforceController {
     @ResponseStatus(HttpStatus.OK)
     public List<Workforce> createWorkforce(@RequestBody Contract contract) {
         List<Integer> rooms = contract.getRooms();
-        workforces = new ArrayList<>();
-        rooms.forEach(roomsInEachStructure -> assignWorkers(contract, roomsInEachStructure));
-        return workforces;
-    }
-
-    /**
-     * This is an internal helper method that provides the logic to find optimal workforce for a given structure
-     * from the available workers
-     *
-     * @param contract Input json object that contains the below input values:
-     *                 - array of rooms (int) for every structure
-     *                 - cleaning capacity Junior Cleaner (int)
-     *                 - cleaning capacity Senior Cleaner (int)
-     * @param rooms No of rooms in each structure
-     */
-    private void assignWorkers(@RequestBody Contract contract, Integer rooms) {
-        int assignedSeniorWorkers = 0;
-        int assignedJuniorWorkers = 0;
-        int availableSeniorWorkers = contract.getSenior();
-        int availableJuniorWorkers = contract.getJunior();
-
-        //By default at least 1 senior worker is to be assigned
-        if (rooms > 0 && availableSeniorWorkers>0) {
-            rooms -= SENIOR_MAX_CAPACITY;
-            assignedSeniorWorkers++;
-            contract.setSenior(availableSeniorWorkers--);
-        }
-
-        for (int m = rooms; m > 0; ) {
-            //Add seniors only if there are more than 12 rooms available for cleaning. Else 2 juniors are more efficient
-            if (m > 12 && availableSeniorWorkers>0) {
-                m -= SENIOR_MAX_CAPACITY;
-                assignedSeniorWorkers++;
-                contract.setSenior(availableSeniorWorkers--);
-            }
-            //Juniors can handle 1 or 2 extra rooms
-            else if(availableJuniorWorkers>0 && m>3){
-                m -= JUNIOR_MAX_CAPACITY;
-                assignedJuniorWorkers++;
-                contract.setJunior(availableJuniorWorkers--);
-            }
-            else {
-                m=0;
-            }
-        }
-        workforces.add(new Workforce(assignedSeniorWorkers, assignedJuniorWorkers));
+        return workforceService.getWorkforce(contract,rooms);
     }
 }
