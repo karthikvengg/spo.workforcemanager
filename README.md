@@ -23,7 +23,8 @@
 ---
 **REST Endpoints**
 
-POST request to http://localhost:8080 with the input json.
+POST request to http://localhost:8090 with the input json.
+The default port number is port:**8090**
 
 ***Example 1***
 

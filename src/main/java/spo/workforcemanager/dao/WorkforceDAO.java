@@ -7,6 +7,11 @@ import spo.workforcemanager.model.Workforce;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This Business service class is a mock DAO object
+ *
+ * @author Karthikeyan Varadarajan
+ */
 @Service
 public class WorkforceDAO {
 
