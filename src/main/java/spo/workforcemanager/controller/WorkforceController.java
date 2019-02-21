@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import spo.workforcemanager.model.Contract;
 import spo.workforcemanager.model.Workforce;
-import spo.workforcemanager.dao.WorkforceDAO;
+import spo.workforcemanager.service.WorkforceService;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class WorkforceController {
      * Service class instance
      */
     @Autowired
-    private WorkforceDAO workforceDAO;
+    private WorkforceService workforceService;
 
     /**
      * This method creates the optimal workforce needed for each structure of their cleaning partner
@@ -42,6 +42,6 @@ public class WorkforceController {
     @ResponseStatus(HttpStatus.OK)
     public List<Workforce> createWorkforce(@RequestBody Contract contract) {
         List<Integer> rooms = contract.getRooms();
-        return workforceDAO.getWorkforce(contract,rooms);
+        return workforceService.getWorkforce(contract,rooms);
     }
 }

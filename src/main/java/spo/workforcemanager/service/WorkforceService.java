@@ -1,4 +1,4 @@
-package spo.workforcemanager.dao;
+package spo.workforcemanager.service;
 
 import org.springframework.stereotype.Service;
 import spo.workforcemanager.model.Contract;
@@ -13,7 +13,7 @@ import java.util.List;
  * @author Karthikeyan Varadarajan
  */
 @Service
-public class WorkforceDAO {
+public class WorkforceService {
 
     /**
      * The maximum number of room a senior can clean in a structure
@@ -31,7 +31,7 @@ public class WorkforceDAO {
     private List<Workforce> workforces;
 
     /**
-     * This is a dao method containing business logic to find the workforces needed for the given structures
+     * This is a service method containing business logic to find the workforces needed for the given structures
      *
      * @param contract Input json object that contains the below input values:
      *                 - array of rooms (int) for every structure
