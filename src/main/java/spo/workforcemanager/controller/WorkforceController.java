@@ -2,9 +2,9 @@ package spo.workforcemanager.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import spo.workforcemanager.model.Contract;
 import spo.workforcemanager.model.Workforce;
@@ -39,9 +39,8 @@ public class WorkforceController {
      * Juniors and Seniors for every structure
      */
     @PostMapping("/")
-    @ResponseStatus(HttpStatus.OK)
-    public List<Workforce> createWorkforce(@RequestBody Contract contract) {
+    public ResponseEntity<List<Workforce>> createWorkforce(@RequestBody Contract contract) {
         List<Integer> rooms = contract.getRooms();
-        return workforceService.getWorkforce(contract,rooms);
+        return new ResponseEntity<>(workforceService.getWorkforce(contract,rooms),HttpStatus.OK);
     }
 }
